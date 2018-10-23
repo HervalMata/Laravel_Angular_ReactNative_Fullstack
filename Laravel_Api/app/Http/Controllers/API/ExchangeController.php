@@ -5,6 +5,7 @@ namespace App\Http\Controllers\API;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use App\Models\Exchange;
+use Validator;
 
 class ExchangeController extends Controller
 {
@@ -14,8 +15,8 @@ class ExchangeController extends Controller
      * @return \Illuminate\Http\Response
      *
      * @SWG\Get(
-     * path = "/api/exchanges"
-     * tags = {"Exchanges"}
+     * path = "/api/exchanges",
+     * tags = {"Exchanges"},
      * summary = "Lista Situações",
      * @SWG\Response(
      * response = 200,
@@ -72,6 +73,27 @@ class ExchangeController extends Controller
      */
     public function store(Request $request)
     {
+        $validator = Validator::make($request->all(), [
+            'unit_id' => 'required',
+            'user1_id' => 'required',
+            'team1_id' => 'required',
+            'user2_id' => 'required',
+            'team2_id' => 'required',
+            'date1' => 'required',
+            'turn1_id' => 'required',
+            'type1_id' => 'required',
+            'type2_id' => 'required',
+            'date2' => 'required',
+            'turn2_id' => 'required',
+            'type3_id' => 'required',
+            'type4_id' => 'required',
+            'situation_id' => 'required',
+        ]);
+
+        if ($validator->fails()) {
+            return response()->json($validator->errors(), 422);
+        }
+
         $createExchange = Exchange::create($request->all());
         return $createExchange;
     }
@@ -160,6 +182,27 @@ class ExchangeController extends Controller
      */
     public function update(Request $request, $id)
     {
+        $validator = Validator::make($request->all(), [
+            'unit_id' => 'required',
+            'user1_id' => 'required',
+            'team1_id' => 'required',
+            'user2_id' => 'required',
+            'team2_id' => 'required',
+            'date1' => 'required',
+            'turn1_id' => 'required',
+            'type1_id' => 'required',
+            'type2_id' => 'required',
+            'date2' => 'required',
+            'turn2_id' => 'required',
+            'type3_id' => 'required',
+            'type4_id' => 'required',
+            'situation_id' => 'required',
+        ]);
+
+        if ($validator->fails()) {
+            return response()->json($validator->errors(), 422);
+        }
+
         $updateExchangeById = Exchange::findOrFail($id);
         $updateExchangeById->update($request->all());
         return $updateExchangeById;

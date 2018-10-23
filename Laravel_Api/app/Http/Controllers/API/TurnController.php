@@ -14,8 +14,8 @@ class TurnController extends Controller
      * @return \Illuminate\Http\Response
      *
      * @SWG\Get(
-     * path = "/api/turns"
-     * tags = {"Turns"}
+     * path = "/api/turns",
+     * tags = {"Turns"},
      * summary = "Lista Turnos",
      * @SWG\Response(
      * response = 200,

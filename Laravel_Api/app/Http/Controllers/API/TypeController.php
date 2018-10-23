@@ -14,8 +14,8 @@ class TypeController extends Controller
      * @return \Illuminate\Http\Response
      *
      * @SWG\Get(
-     * path = "/api/types"
-     * tags = {"Types"}
+     * path = "/api/types",
+     * tags = {"Types"},
      * summary = "Lista Tipos",
      * @SWG\Response(
      * response = 200,

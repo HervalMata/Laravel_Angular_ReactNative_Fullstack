@@ -5,6 +5,7 @@ namespace App\Http\Controllers\API;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use App\Models\Situation;
+use Validator;
 
 class SituationController extends Controller
 {
@@ -14,8 +15,8 @@ class SituationController extends Controller
      * @return \Illuminate\Http\Response
      *
      * @SWG\Get(
-     * path = "/api/situations"
-     * tags = {"Situations"}
+     * path = "/api/situations",
+     * tags = {"Situations"},
      * summary = "Lista Situações",
      * @SWG\Response(
      * response = 200,
@@ -72,6 +73,14 @@ class SituationController extends Controller
      */
     public function store(Request $request)
     {
+        $validator = Validator::make($request->all(), [
+            'name' => 'required|max:20|unique:units',
+        ]);
+
+        if ($validator->fails()) {
+            return response()->json($validator->errors(), 422);
+        }
+
         $createSituation = Situation::create($request->all());
         return $createSituation;
     }
@@ -160,6 +169,14 @@ class SituationController extends Controller
      */
     public function update(Request $request, $id)
     {
+        $validator = Validator::make($request->all(), [
+            'name' => 'required|max:20|unique:units',
+        ]);
+
+        if ($validator->fails()) {
+            return response()->json($validator->errors(), 422);
+        }
+
         $updateSituationById = Situation::findOrFail($id);
         $updateSituationById->update($request->all());
         return $updateSituationById;

@@ -5,17 +5,19 @@ namespace App\Http\Controllers\API;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use App\Models\Unit;
+use Validator;
 
 class UnitController extends Controller
 {
+
     /**
      * Display a listing of the resource.
      *
      * @return \Illuminate\Http\Response
      *
      * @SWG\Get(
-     * path = "/api/units"
-     * tags = {"Units"}
+     * path = "/api/units",
+     * tags = {"Units"},
      * summary = "Lista Unidades",
      * @SWG\Response(
      * response = 200,
@@ -72,6 +74,14 @@ class UnitController extends Controller
      */
     public function store(Request $request)
     {
+        $validator = Validator::make($request->all(), [
+            'name' => 'required|max:20|unique:units',
+        ]);
+
+        if ($validator->fails()) {
+            return response()->json($validator->errors(), 422);
+        }
+
         $createUnit = Unit::create($request->all());
         return $createUnit;
     }
@@ -160,6 +170,14 @@ class UnitController extends Controller
      */
     public function update(Request $request, $id)
     {
+        $validator = Validator::make($request->all(), [
+            'name' => 'required|max:20|unique:units',
+        ]);
+
+        if ($validator->fails()) {
+            return response()->json($validator->errors(), 422);
+        }
+
         $updateUnitById = Unit::findOrFail($id);
         $updateUnitById->update($request->all());
         return $updateUnitById;

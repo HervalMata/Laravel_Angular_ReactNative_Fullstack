@@ -14,8 +14,8 @@ class TeamController extends Controller
      * @return \Illuminate\Http\Response
      *
      * @SWG\Get(
-     * path = "/api/teams"
-     * tags = {"Teams"}
+     * path = "/api/teams",
+     * tags = {"Teams"},
      * summary = "Lista Equipes",
      * @SWG\Response(
      * response = 200,
