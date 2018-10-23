@@ -1,0 +1,73 @@
+{
+    "swagger": "2.0",
+    "info": {
+        "title": "Unidades",
+        "contact": {
+            "name": "Herval Mata",
+            "url": "https://www.trocaa.com.br"
+        },
+        "version": "1.0"
+    },
+    "host": "localhost:8080",
+    "basePath": "",
+    "schemes": [
+        "http"
+    ],
+    "paths": {},
+    "definitions": {
+        "Unit": {
+            "required": [
+                "name"
+            ],
+            "properties": {
+                "name": {
+                    "description": "Unit name",
+                    "type": "string",
+                    "example": "Utilidades"
+                }
+            }
+        },
+        "User": {
+            "required": [
+                "unit_id",
+                "key",
+                "name",
+                "email",
+                "password",
+                "active"
+            ],
+            "properties": {
+                "unit_id": {
+                    "description": "Unit id",
+                    "type": "integer",
+                    "example": "1"
+                },
+                "key": {
+                    "description": "User key",
+                    "type": "string",
+                    "example": "oooo"
+                },
+                "name": {
+                    "description": "User name",
+                    "type": "string",
+                    "example": "Utilidades"
+                },
+                "email": {
+                    "description": "User email",
+                    "type": "string",
+                    "example": "Admin_gestao@gmail.com"
+                },
+                "password": {
+                    "description": "User password",
+                    "type": "string",
+                    "example": "Utilidades"
+                },
+                "active": {
+                    "description": "User status",
+                    "type": "boolean",
+                    "example": "true"
+                }
+            }
+        }
+    }
+}
