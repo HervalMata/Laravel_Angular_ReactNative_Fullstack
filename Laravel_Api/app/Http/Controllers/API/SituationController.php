@@ -16,10 +16,10 @@ class SituationController extends Controller
      * @SWG\Get(
      * path = "/api/situations"
      * tags = {"Situations"}
-     * summary = "Lista Unidades",
+     * summary = "Lista Situações",
      * @SWG\Response(
      * response = 200,
-     * description = "Sucesso: Lista de todas as unidades",
+     * description = "Sucesso: Lista de todas as situações",
      * @SWG\Schema(ref = "#/definitions/Situation")
      * ),
      * @SWG\Response(
