@@ -43,7 +43,7 @@ class SituationController extends Controller
      * @SWG\Post(
      * path = "/api/situations",
      * tags = {"Situations"},
-     * summary = "Cadastrar Unidade",
+     * summary = "Cadastrar Situação",
      * @SWG\Paramter(
      *     name = "body",
      *     in = "body",
@@ -53,7 +53,7 @@ class SituationController extends Controller
      *  ),
      * @SWG\Response(
      * response = 201,
-     * description = "Sucesso: Uma nova unidade foi cadastrada",
+     * description = "Sucesso: Uma nova situação foi cadastrada",
      * @SWG\Schema(ref = "#/definitions/Situation")
      * ),
      *  @SWG\Response(

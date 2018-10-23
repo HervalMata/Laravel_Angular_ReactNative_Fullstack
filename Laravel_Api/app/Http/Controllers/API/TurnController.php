@@ -19,7 +19,7 @@ class TurnController extends Controller
      * summary = "Lista Turnos",
      * @SWG\Response(
      * response = 200,
-     * description = "Sucesso: Lista de todas os turnos",
+     * description = "Sucesso: Lista de todos os turnos",
      * @SWG\Schema(ref = "#/definitions/Turn")
      * ),
      * @SWG\Response(

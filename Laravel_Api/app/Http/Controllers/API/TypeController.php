@@ -4,9 +4,9 @@ namespace App\Http\Controllers\API;
 
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
-use App\Models\Team;
+use App\Models\Type;
 
-class TeamController extends Controller
+class TypeController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -14,13 +14,13 @@ class TeamController extends Controller
      * @return \Illuminate\Http\Response
      *
      * @SWG\Get(
-     * path = "/api/teams"
-     * tags = {"Teams"}
-     * summary = "Lista Equipes",
+     * path = "/api/types"
+     * tags = {"Types"}
+     * summary = "Lista Tipos",
      * @SWG\Response(
      * response = 200,
-     * description = "Sucesso: Lista de todas as equipes",
-     * @SWG\Schema(ref = "#/definitions/Team")
+     * description = "Sucesso: Lista de todos os tipos",
+     * @SWG\Schema(ref = "#/definitions/Type")
      * ),
      * @SWG\Response(
      * response = "404",
@@ -30,8 +30,8 @@ class TeamController extends Controller
      */
     public function index()
     {
-        $listTeam = Team::all();
-        return $listTeam;
+        $listType = Type::all();
+        return $listType;
     }
 
     /**
@@ -41,19 +41,19 @@ class TeamController extends Controller
      * @return \Illuminate\Http\Response
      *
      * @SWG\Post(
-     * path = "/api/teams/{id}",
-     * tags = {"Teams"},
-     * summary = "Buscar Equipe Pelo Id",
+     * path = "/api/types/{id}",
+     * tags = {"Types"},
+     * summary = "Buscar Tipo Pelo Id",
      * @SWG\Paramter(
      *     name = "id",
      *     in = "path",
      *     required = true,
      *     type = "integer",
-     *     description = "Mostrar a equipe especificada pelo id.",
+     *     description = "Mostrar o tipo especificado pelo id.",
      *  ),
      *  @SWG\Response(
      * response = 200,
-     * description = "Sucesso: Retorna a equipe",
+     * description = "Sucesso: Retorna o tipo",
      * @SWG\Schema(ref = "#/definitions/Team")
      * ),
      *  @SWG\Response(
@@ -68,7 +68,7 @@ class TeamController extends Controller
      */
     public function show($id)
     {
-        $showTeamById = Team::findOrFail($id);
-        return $showTeamById;
+        $showTypeById = Type::findOrFail($id);
+        return $showTypeById;
     }
 }
