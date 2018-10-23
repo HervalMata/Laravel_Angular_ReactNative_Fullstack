@@ -4,9 +4,9 @@ namespace App\Http\Controllers\API;
 
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
-use App\Models\Turn;
+use App\Models\Team;
 
-class TurnController extends Controller
+class TeamController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -14,13 +14,13 @@ class TurnController extends Controller
      * @return \Illuminate\Http\Response
      *
      * @SWG\Get(
-     * path = "/api/turns"
-     * tags = {"Turns"}
-     * summary = "Lista Turnos",
+     * path = "/api/teams"
+     * tags = {"Teams"}
+     * summary = "Lista Equipes",
      * @SWG\Response(
      * response = 200,
-     * description = "Sucesso: Lista de todas os turnos",
-     * @SWG\Schema(ref = "#/definitions/Turn")
+     * description = "Sucesso: Lista de todas as equipes",
+     * @SWG\Schema(ref = "#/definitions/Team")
      * ),
      * @SWG\Response(
      * response = "404",
@@ -30,8 +30,8 @@ class TurnController extends Controller
      */
     public function index()
     {
-        $listTurn = Turn::all();
-        return $listSituation;
+        $listTeam = Team::all();
+        return $listTeam;
     }
 
     /**
@@ -41,20 +41,20 @@ class TurnController extends Controller
      * @return \Illuminate\Http\Response
      *
      * @SWG\Post(
-     * path = "/api/turns/{id}",
-     * tags = {"Turns"},
-     * summary = "Buscar Turno Pelo Id",
+     * path = "/api/teams/{id}",
+     * tags = {"Teams"},
+     * summary = "Buscar Equipe Pelo Id",
      * @SWG\Paramter(
      *     name = "id",
      *     in = "path",
      *     required = true,
      *     type = "integer",
-     *     description = "Mostrar o turno especificado pelo id.",
+     *     description = "Mostrar a equipe especificado pelo id.",
      *  ),
      *  @SWG\Response(
      * response = 200,
-     * description = "Sucesso: Retorna o turno",
-     * @SWG\Schema(ref = "#/definitions/Turn")
+     * description = "Sucesso: Retorna a equipe",
+     * @SWG\Schema(ref = "#/definitions/Team")
      * ),
      *  @SWG\Response(
      * response = "404",
@@ -68,7 +68,7 @@ class TurnController extends Controller
      */
     public function show($id)
     {
-        $showTurnById = Turn::findOrFail($id);
-        return $showTurnById;
+        $showTeamById = Team::findOrFail($id);
+        return $showTeamById;
     }
 }
