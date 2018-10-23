@@ -52,7 +52,8 @@ class Handler extends ExceptionHandler
     public function render($request, Exception $exception)
     {
         // This will replace our 404 response from the MVC to a JSON response.
-        if ($exception instanceof ModelNotFoundException && $request->wantsJson()//Enable header Accept: application/json to see the proper error msg) {
+        if ($exception instanceof ModelNotFoundException && $request->wantsJson()) //Enable header Accept: application/json to see the proper error msg
+        {
             return response()->json(['error' => 'Resource not found'], 404);
         }
         if ($exception instanceof ModelNotAllowedHttpException) {
