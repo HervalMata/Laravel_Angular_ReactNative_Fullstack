@@ -16,3 +16,12 @@ use Illuminate\Http\Request;
 Route::middleware('auth:api')->get('/user', function (Request $request) {
     return $request->user();
 });
+
+Route::apiResources([
+    'units' => 'API\UnitController',
+    'situations' => 'API\SituationController',
+    'teams' => 'API\TeamController',
+    'turns' => 'API\TurnController',
+    'types' => 'API\TypeController',
+    'exchanges' => 'API\ExchangeController',
+]);
