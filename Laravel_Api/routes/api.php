@@ -25,3 +25,15 @@ Route::apiResources([
     'types' => 'API\TypeController',
     'exchanges' => 'API\ExchangeController',
 ]);
+
+Route::post('register', 'API/AuthController@register');
+Route::post('login', 'API/AuthController@login');
+Route::post('logout', 'API/AuthController@logout');
+Route::put('users/{id}', 'API/AuthController@update');
+Route::delete('users/{id}', 'API/AuthController@delete');
+Route::get('users/{id}', 'API/AuthController@show');
+Route::get('users', 'API/AuthController@index');
+
+Route::middleware('jwt.auth')->get('me', function(Request $request) {
+    return auth()->user();
+});
